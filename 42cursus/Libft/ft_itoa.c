@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:23:51 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/13 23:43:34 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/14 14:52:01 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,22 @@ char		*ft_itoa(int n)
 {
 	char	*ptr;
 	int		len;
-	int		digit;
 
 	if (n == -2147483648)
 		return ("-2147483648");
+	if (!n)
+		return ("0");
 	len = get_length(n);
 	if (n < 0)
-	{
 		len++;
-		n *= -1;
-	}
 	if (!(ptr = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
 	if (n < 0)
+	{
 		ptr[0] = '-';
+		n *= -1;
+	}
+	ptr[len] = 0;
 	while (n)
 	{
 		ptr[--len] = (n % 10) + '0';

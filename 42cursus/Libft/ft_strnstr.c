@@ -6,28 +6,28 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:26:55 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/11 19:26:57 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/15 11:46:34 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *lit, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	little_len;
+	size_t	lit_len;
 
-	if (!*little)
+	if (!*lit)
 		return ((char *)big);
 	i = 0;
-	little_len = ft_strlen(little);
-	while (i <= len - little_len)
+	lit_len = ft_strlen(lit);
+	while (i <= len - lit_len)
 	{
 		j = 0;
-		while (j < little_len && big[i + j] == little[j])
+		while (j < lit_len && big[i + j] == lit[j])
 			j++;
-		if (j == little_len)
+		if (j == lit_len)
 			return ((char *)(big + i));
 		i++;
 	}
