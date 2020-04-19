@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/11 19:26:55 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/16 00:03:24 by seongkim         ###   ########.fr       */
+/*   Created: 2020/04/15 17:34:27 by seongkim          #+#    #+#             */
+/*   Updated: 2020/04/17 17:05:24 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	j;
-	size_t	little_len;
+	t_list	*temp;
 
-	if (!*little)
-		return ((char *)big);
-	i = 0;
-	little_len = ft_strlen(little);
-	while (i <= len - little_len)
-	{
-		j = 0;
-		while (j < little_len && big[i + j] == little[j])
-			j++;
-		if (j == little_len)
-			return ((char *)(big + i));
-		i++;
-	}
-	return (0);
+	if (!(temp = (t_list *)malloc(sizeof(t_list))))
+		return (0);
+	temp->content = content;
+	temp->next = 0;
+	return (temp);
 }

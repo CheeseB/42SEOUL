@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/11 19:26:55 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/16 00:03:24 by seongkim         ###   ########.fr       */
+/*   Created: 2020/04/15 17:44:48 by seongkim          #+#    #+#             */
+/*   Updated: 2020/04/17 17:03:43 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
-	size_t	j;
-	size_t	little_len;
+	t_list	*temp;
 
-	if (!*little)
-		return ((char *)big);
-	i = 0;
-	little_len = ft_strlen(little);
-	while (i <= len - little_len)
+	if (!*lst)
+		*lst = new;
+	else
 	{
-		j = 0;
-		while (j < little_len && big[i + j] == little[j])
-			j++;
-		if (j == little_len)
-			return ((char *)(big + i));
-		i++;
+		temp = *lst;
+		while (temp->next)
+			temp = temp->next;
+		temp->next = new;
 	}
-	return (0);
 }

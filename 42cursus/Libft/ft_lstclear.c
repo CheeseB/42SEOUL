@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/11 19:26:55 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/16 00:03:24 by seongkim         ###   ########.fr       */
+/*   Created: 2020/04/15 17:51:18 by seongkim          #+#    #+#             */
+/*   Updated: 2020/04/18 20:24:25 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
-	size_t	j;
-	size_t	little_len;
+	t_list	*temp;
 
-	if (!*little)
-		return ((char *)big);
-	i = 0;
-	little_len = ft_strlen(little);
-	while (i <= len - little_len)
+	while (*lst)
 	{
-		j = 0;
-		while (j < little_len && big[i + j] == little[j])
-			j++;
-		if (j == little_len)
-			return ((char *)(big + i));
-		i++;
+		temp = *lst;
+		*lst = temp->next;
+		del(temp->content);
+		free(temp);
 	}
-	return (0);
 }

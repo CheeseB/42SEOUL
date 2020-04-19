@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/11 19:26:55 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/16 00:03:24 by seongkim         ###   ########.fr       */
+/*   Created: 2020/04/15 17:52:40 by seongkim          #+#    #+#             */
+/*   Updated: 2020/04/18 20:33:19 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	i;
-	size_t	j;
-	size_t	little_len;
-
-	if (!*little)
-		return ((char *)big);
-	i = 0;
-	little_len = ft_strlen(little);
-	while (i <= len - little_len)
+	while (lst)
 	{
-		j = 0;
-		while (j < little_len && big[i + j] == little[j])
-			j++;
-		if (j == little_len)
-			return ((char *)(big + i));
-		i++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	return (0);
 }

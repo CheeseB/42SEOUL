@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:27:33 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/15 11:44:23 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/16 00:01:51 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
 char				*ft_itoa(int n);
+void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstclear(t_list **lst, void (*del)(void*));
+void				ft_lstdelone(t_list *lst, void (*del)(void*));
+void				ft_lstiter(t_list *lst, void (*f)(void *));
+t_list				*ft_lstlast(t_list *lst);
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
+t_list				*ft_lstnew(void *content);
+int					ft_lstsize(t_list *lst);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t len);
 void				*ft_memchr(const void *b, int c, size_t len);
 int					ft_memcmp(const void *b1, const void *b2, size_t len);
@@ -50,7 +60,8 @@ size_t				ft_strlcpy(char *dst, const	char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strncmp(const char *s1, const char *s2, size_t len);
-char				*ft_strnstr(const char *big, const char *lit, size_t len);
+char				*ft_strnstr(const char *big, const char *little,
+					size_t len);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
