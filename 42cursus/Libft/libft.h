@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:27:33 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/16 00:01:51 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/21 22:37:24 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *dest, int c, size_t len);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
-void				ft_putnbr_fd(char *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 char				**ft_split(char const *s, char c);
 char				*ft_strchr(const char *s, int c);

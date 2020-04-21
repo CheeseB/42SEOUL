@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:27:09 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/11 19:32:57 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/21 22:38:18 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (0);
 	if (!(ptr = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
-	i = 0;
+	idx = 0;
 	while (s[start] && len--)
-		ptr[i++] = s[start++];
-	ptr[i] = 0;
+		ptr[idx++] = s[start++];
+	ptr[idx] = 0;
 	return (ptr);
 }

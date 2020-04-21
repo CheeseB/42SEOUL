@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:25:32 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/11 19:25:33 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/21 22:37:00 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	ft_putnbr_fd(int n, int fd)
 		n = n * -1;
 	}
 	if (n >= 10)
-		ft_putnbr_fd(n / 10);
+		ft_putnbr_fd(n / 10, fd);
 	ft_putchar_fd(n % 10 + '0', fd);
 }
