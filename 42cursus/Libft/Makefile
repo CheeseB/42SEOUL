@@ -6,7 +6,7 @@
 #    By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/21 17:11:45 by seongkim          #+#    #+#              #
-#    Updated: 2020/04/21 22:20:20 by seongkim         ###   ########.fr        #
+#    Updated: 2020/04/21 22:33:54 by seongkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,15 @@ AR = ar rc
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-bonus: $(OBJS) $(BONOBJS)
-	$(AR) $(NAME) $^
-
-%.o: %.c $(HEADER)
+%.o: %.c $(HEAD)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
 
 all: $(NAME)
+
+bonus: $(OBJS) $(BONOBJS)
+	$(AR) $(NAME) $^
 
 clean:
 	$(RM) $(OBJS)
