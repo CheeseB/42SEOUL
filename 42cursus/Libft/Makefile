@@ -6,14 +6,14 @@
 #    By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/21 17:11:45 by seongkim          #+#    #+#              #
-#    Updated: 2020/04/21 22:33:54 by seongkim         ###   ########.fr        #
+#    Updated: 2020/04/22 14:09:05 by seongkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 BONUS = $(wildcard *lst*.c)
 SRCS = $(filter-out $(BONUS), $(wildcard *.c))
 OBJS = $(SRCS:.c=.o)
-BONOBJS = $(BONUS: .c=.o)
+BONOBJS = $(BONUS:.c=.o)
 NAME = libft.a
 HEAD = libft.h
 CC = gcc
@@ -35,7 +35,7 @@ bonus: $(OBJS) $(BONOBJS)
 	$(AR) $(NAME) $^
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONOBJS)
 
 fclean: clean
 	$(RM) $(NAME)
