@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:31:37 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/11 19:32:35 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/24 18:17:41 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static size_t	get_end(char const *s1, char const *set, size_t start)
 	size_t	i;
 	int		flag;
 
+	if (!*s1)
+		return (0);
 	end = ft_strlen(s1) - 1;
 	while (start < end)
 	{
@@ -75,7 +77,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 
 	trim_start = get_start(s1, set);
 	trim_end = get_end(s1, set, trim_start);
-	if (trim_start > trim_end)
+	if (trim_start > trim_end || (!trim_start && !trim_end))
 	{
 		if (!(ptr = (char *)malloc(sizeof(char))))
 			return (0);

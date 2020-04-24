@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:24:54 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/11 19:28:18 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/24 17:56:38 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*result;
+	void	*result;
 
-	result = (unsigned char *)dst;
+	if (!dst && !src)
+		return (0);
+	result = dst;
 	if (dst > src)
 	{
-		result += len - 1;
+		dst += len - 1;
 		src += len - 1;
 		while (len--)
 		{
-			*result = *(unsigned char *)src;
-			result--;
+			*(unsigned char *)dst = *(unsigned char *)src;
+			dst--;
 			src--;
 		}
 	}
 	else
-	{
 		while (len--)
 		{
-			*result = *(unsigned char *)src;
-			result++;
+			*(unsigned char *)dst = *(unsigned char *)src;
+			dst++;
 			src++;
 		}
-	}
-	return (dst);
+	return (result);
 }
