@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:26:09 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/11 19:35:03 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/27 10:46:50 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	idx;
 	size_t	len;
 
+	if (!s1 || !s2)
+		return (0);
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	if (!(ptr = (char *)malloc(sizeof(char) * len)))
 		return (0);

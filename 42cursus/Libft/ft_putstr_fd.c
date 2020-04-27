@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:25:40 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/11 19:25:41 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/27 10:22:00 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	write(fd, s, ft_strlen(s));
 }

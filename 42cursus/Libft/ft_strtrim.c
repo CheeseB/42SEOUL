@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:31:37 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/24 18:17:41 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/27 10:42:15 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	size_t	trim_end;
 	size_t	i;
 
+	if (!s1)
+		return (0);
 	trim_start = get_start(s1, set);
 	trim_end = get_end(s1, set, trim_start);
 	if (trim_start > trim_end || (!trim_start && !trim_end))
@@ -88,11 +90,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 		return (0);
 	i = 0;
 	while (trim_start <= trim_end)
-	{
-		ptr[i] = s1[trim_start];
-		i++;
-		trim_start++;
-	}
+		ptr[i++] = s1[trim_start++];
 	ptr[i] = 0;
 	return (ptr);
 }

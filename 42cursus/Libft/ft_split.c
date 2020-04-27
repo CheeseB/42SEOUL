@@ -6,7 +6,7 @@
 /*   By: seongkim <seongki@student.42seoul.kr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 19:25:47 by seongkim          #+#    #+#             */
-/*   Updated: 2020/04/11 19:33:25 by seongkim         ###   ########.fr       */
+/*   Updated: 2020/04/27 10:42:53 by seongkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char		**ft_split(char const *s, char c)
 	size_t	count;
 	size_t	i;
 
+	if (!s)
+		return (0);
 	count = 0;
 	i = 0;
 	while (s[i])
