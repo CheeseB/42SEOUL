@@ -12,35 +12,19 @@
 
 #include "get_next_line.h"
 
-char	*ft_strchr(char *s, int c)
-{
-	size_t i;
-
-	if (s == 0)
-		return (0);
-	i = 0;
-	if (c == 0)
-		return ((char *)s + ft_strlen(s));
-	while (s[i])
-	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)s + i);
-		i++;
-	}
-	return (0);
-}
-
 size_t	ft_strlen(char *s)
 {
-	size_t i;
+	size_t	count;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	count = 0;
+	while (s[count] != '\0')
+	{
+		count++;
+	}
+	return (count);
 }
 
-char	*ft_strcpy(char *dst, char *src, size_t n)
+char	*ft_strncpy(char *dst, char *src, size_t n)
 {
 	size_t i;
 
@@ -55,33 +39,50 @@ char	*ft_strcpy(char *dst, char *src, size_t n)
 	return (dst);
 }
 
-char	*ft_strndup(char *s1, size_t size)
+char	*ft_strchr(char *s, int c)
 {
-	char	*dup;
-
-	dup = (char *)malloc(sizeof(char) * (size + 1));
-	if (dup == 0)
-		return (0);
-	ft_strcpy(dup, s1, size);
-	dup[size] = 0;
-	return (dup);
+	if (c == 0)
+	{
+		while (*s)
+			s++;
+		return ((char *)s);
+	}
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	return (0);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*new_s;
-	size_t	len1;
-	size_t	len2;
+	char	*ptr;
+	size_t	idx;
+	size_t	len;
 
-	if (s1 == 0 && s2 == 0)
+	if (!s1 || !s2)
 		return (0);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	new_s = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (new_s == 0)
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!(ptr = (char *)malloc(sizeof(char) * len)))
 		return (0);
-	ft_strcpy(new_s, s1, len1);
-	ft_strcpy(new_s + len1, s2, len2);
-	new_s[len1 + len2] = 0;
-	return (new_s);
+	idx = 0;
+	while (*s1)
+		ptr[idx++] = *s1++;
+	while (*s2)
+		ptr[idx++] = *s2++;
+	ptr[idx] = 0;
+	return (ptr);
+}
+
+char	*ft_strndup(char *str, size_t size)
+{
+	char	*ptr;
+
+	if (!(ptr = (char *)malloc(sizeof(char) * (size + 1))))
+		return (0);
+	ft_strncpy(ptr, str, size);
+	ptr[size] = 0;
+	return (ptr);
 }
